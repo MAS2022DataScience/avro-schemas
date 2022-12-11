@@ -1,0 +1,8 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("raw tracab competition data")
+protocol CompetitionProtocol {
+	record Competition {
+		int id;
+		string name;
+	}
+}

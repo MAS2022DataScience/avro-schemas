@@ -1,0 +1,9 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("raw tracab match data")
+protocol MatchProtocol {
+	record Match {
+		int id;
+		string dateMatch;
+		int matchNumber;
+	}
+}

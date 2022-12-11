@@ -1,0 +1,9 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("raw tracab phase data")
+protocol PhaseProtocol {
+	record Phase {
+		string start;
+		string end;
+		int leftTeamID;
+	}
+}

@@ -1,0 +1,10 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("Attributes of an event")
+protocol AttributeProtocol {
+
+	record Attribute {
+		string name;
+		union { null, double, int, string } value = null;
+
+	}
+}

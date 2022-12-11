@@ -1,0 +1,21 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The RAW Tracab frame of a match")
+protocol FrameProtocol {
+	import idl "Competition.avdl";
+	import idl "Match.avdl";
+	import idl "Object.avdl";
+	import idl "Phase.avdl";
+	import idl "Stadium.avdl";
+
+	record Frame {
+		string utc;
+		int isBallInPlay;
+		string ballPossession;
+		array<Object> objects;
+		Match match;
+		Stadium stadium;
+		array<Phase> phases;
+		Competition competition;
+
+	}
+}

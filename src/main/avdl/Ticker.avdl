@@ -1,0 +1,15 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("Ticker events")
+protocol TickerProtocol {
+	import idl "Attribute.avdl";
+
+	record Ticker {
+		timestamp_ms ts;
+		string match_id;
+		string player_id;
+		string team_id;
+		string event_type;
+		array<Attribute> attributes;
+
+	}
+}

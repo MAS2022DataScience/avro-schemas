@@ -1,0 +1,15 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("raw tracab object data")
+protocol ObjectProtocol {
+	record Object {
+		int type;
+		string id;
+		int x;
+		int y;
+		int z;
+		int sampling;
+		union { null, double } velocity = null;
+		union { null, double } accelleration = null;
+		union { null, double } distance = null;
+	}
+}

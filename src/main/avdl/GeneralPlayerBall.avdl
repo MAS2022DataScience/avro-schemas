@@ -1,0 +1,14 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("player and ball data")
+protocol PlayerBallProtocol {
+	record PlayerBall {
+		timestamp_ms ts;
+		string id;
+		int x;
+		int y;
+		int z;
+		union { null, double } velocity = null;
+		union { null, double } accelleration = null;
+		union { null, double } distance = null;
+	}
+}

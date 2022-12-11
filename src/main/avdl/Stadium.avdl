@@ -1,0 +1,10 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("raw tracab stadium data")
+protocol StadiumProtocol {
+	record Stadium {
+		int id;
+		string name;
+		int pitchLength;
+		int pitchWidth;
+	}
+}
