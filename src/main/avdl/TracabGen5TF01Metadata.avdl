@@ -1,0 +1,32 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The RAW Tracab Gen5 TF01 metadata")
+protocol TracabGen5TF01MetadataProtocol {
+	import idl "TracabGen5TF01Team.avdl";
+
+	record TracabGen5TF01Metadata {
+		// FIFA game ID
+		int GameID;
+		// FIFA competition ID
+		int CompetitionID;
+		int SeasonID;
+		// how many frames per second (40ms - 25fps)
+		int FrameRate;
+		int PitchShortSide;
+		int PitchLongSide;
+		// as all matches start with frame 0 the start date and time is added
+		int Phase1StartFrame;
+		int Phase1EndFrame;
+		int Phase2StartFrame;
+		int Phase2EndFrame;
+		int Phase3StartFrame;
+		int Phase3EndFrame;
+		int Phase4StartFrame;
+		int Phase4EndFrame;
+		int Phase5StartFrame;
+		int Phase5EndFrame;
+		TracabGen5TF01Team HomeTeam;
+		TracabGen5TF01Team AwayTeam;
+		array<TracabGen5TF01Player> Referees;
+
+	}
+}

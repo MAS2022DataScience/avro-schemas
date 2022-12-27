@@ -1,0 +1,17 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The RAW Tracab Gen5 TF01 data")
+protocol TracabGen5TF01Protocol {
+	import idl "Object.avdl";
+
+	record TracabGen5TF01 {
+		string utc;
+		@description("Ball status or BallInPlay, [D is Dead, A is Alive]")
+		string isBallInPlay;
+		@description("Who has ball possession [Home, Away]")
+		string ballPossession;
+		// Ball contact dev info if buttons are pressed [SetHome, SetAway]
+		union { null, string }  contactDevInfo = null;
+		array<Object> objects;
+
+	}
+}

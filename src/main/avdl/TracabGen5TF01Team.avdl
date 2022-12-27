@@ -1,0 +1,14 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The RAW Tracab Gen5 TF01 matadata Team schema")
+protocol TracabGen5TF01TeamProtocol {
+	import idl "TracabGen5TF01Player.avdl";
+
+	record TracabGen5TF01Team {
+		string LongName;
+		string ShortName;
+		// FIFA team ID
+		int  TeamID;
+		array<TracabGen5TF01Player> Players;
+
+	}
+}
