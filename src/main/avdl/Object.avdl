@@ -2,14 +2,20 @@
 @description("raw tracab object data")
 protocol ObjectProtocol {
 	record Object {
+		@description("type can be 0 (home), 1 (away) and 7 (ball)")
 		int type;
+		@description("player id or jersey number")
 		string id;
+		@description("x coordinate")
 		int x;
+		@description("y coordinate")
 		int y;
+		@description("z coordinate")
 		int z;
 		int sampling;
 		union { null, double } velocity = null;
 		union { null, double } accelleration = null;
 		union { null, double } distance = null;
+		union { null, double } delta_time = null;
 	}
 }
