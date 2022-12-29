@@ -1,0 +1,16 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("general sprint event data")
+protocol SprintProtocol {
+	record Sprint {
+		timestamp_ms ts;
+		string playerId;
+		double vMin;
+		double vMax;
+		double aMin;
+		double aMax;
+		string sessionStartTs;
+		string sessionEndTs;
+		int tickCount;
+		int sessionLengthMs;
+	}
+}
