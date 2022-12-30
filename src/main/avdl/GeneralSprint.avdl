@@ -4,6 +4,7 @@ protocol SprintProtocol {
 	record Sprint {
 		timestamp_ms ts;
 		string playerId;
+		string matchId;
 		double vMin;
 		double vMax;
 		double aMin;
@@ -11,6 +12,6 @@ protocol SprintProtocol {
 		string sessionStartTs;
 		string sessionEndTs;
 		int tickCount;
-		int sessionLengthMs;
+		long sessionLengthMs;
 	}
 }
