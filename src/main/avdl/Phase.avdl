@@ -4,6 +4,6 @@ protocol PhaseProtocol {
 	record Phase {
 		string start;
 		string end;
-		int leftTeamID;
+		union { null, int }  leftTeamID = null;
 	}
 }
