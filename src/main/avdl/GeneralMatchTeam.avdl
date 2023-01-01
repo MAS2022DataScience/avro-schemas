@@ -1,0 +1,16 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The Tracab Team of a match")
+protocol GeneralMatchTeamProtocol {
+
+	record GeneralMatchTeam {
+		string HomeLongName;
+		string HomeShortName;
+		// FIFA team ID
+		int  HomeTeamID;
+		string AwayLongName;
+		string AwayShortName;
+		// FIFA team ID
+		int  AwayTeamID;
+
+	}
+}

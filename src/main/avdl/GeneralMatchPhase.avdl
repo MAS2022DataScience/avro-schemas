@@ -1,0 +1,10 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The Tracab phases of a match")
+protocol GeneralMatchPhaseProtocol {
+	import idl "Phase.avdl";
+
+	record GeneralMatchPhase {
+		array<Phase> phases;
+
+	}
+}

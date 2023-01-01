@@ -1,0 +1,9 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("The Tracab Player of a match")
+protocol GeneralMatchPlayerProtocol {
+	import idl "TracabGen5TF01Player.avdl";
+
+	record GeneralMatchPlayer {
+		array<TracabGen5TF01Player>  players;
+	}
+}

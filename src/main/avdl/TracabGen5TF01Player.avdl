@@ -4,11 +4,14 @@ protocol TracabGen5TF01PlayerProtocol {
 	record TracabGen5TF01Player {
 		// FIFA player ID
 		int PlayerID;
+		union { null, int } TeamID = null;
 		string FirstName;
 		string LastName;
 		int JerseyNo;
 		int StartFrameCount;
+		union { null, string } StartTime = null;
 		int EndFrameCount;
+		union { null, string } EndTime = null;
 
 	}
 }
