@@ -9,6 +9,8 @@ protocol SprintProtocol {
 		double vMax;
 		double aMin;
 		double aMax;
+		union { null, double } mvaPercent = null;
+		union { null, string } type = null;
 		string sessionStartTs;
 		string sessionEndTs;
 		int tickCount;
