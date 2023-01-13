@@ -1,7 +1,7 @@
 @namespace("com.mas2022datascience.avro.v1")
-@description("general sprint event data")
-protocol SprintProtocol {
-	record Sprint {
+@description("general acceleration event data")
+protocol AccelerationProtocol {
+	record Acceleration {
 		timestamp_ms ts;
 		string playerId;
 		string matchId;
