@@ -1,7 +1,7 @@
 @namespace("com.mas2022datascience.avro.v1")
-@description("general acceleration event data")
-protocol AccelerationProtocol {
-	record Acceleration {
+@description("general ball possession change event data")
+protocol GeneralBallPossessionChangeProtocol {
+	record GeneralBallPossessionChange {
 		timestamp_ms ts;
 		string matchId;
 		int lostPossessionTeamId;
