@@ -4,8 +4,8 @@ protocol GeneralBallPossessionChangeProtocol {
 	record GeneralBallPossessionChange {
 		timestamp_ms ts;
 		string matchId;
-		int lostPossessionTeamId;
-		int wonPossessionTeamId;
+		string lostPossessionTeamId;
+		string wonPossessionTeamId;
 		int ballX;
 		int ballY;
 		union { null, int } ballZ = null;
