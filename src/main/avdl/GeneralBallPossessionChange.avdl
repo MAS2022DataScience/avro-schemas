@@ -8,6 +8,7 @@ protocol GeneralBallPossessionChangeProtocol {
 		int wonPossessionTeamId;
 		int ballX;
 		int ballY;
+		union { null, int } ballZ = null;
 		union { null, int } homeZone = null;
 		union { null, int } homeSubzone = null;
 		union { null, int } awayZone = null;
