@@ -1,0 +1,16 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("general acceleration event data")
+protocol AccelerationProtocol {
+	record Acceleration {
+		timestamp_ms ts;
+		string matchId;
+		int lostPossessionTeamId;
+		int wonPossessionTeamId;
+		int ballX;
+		int ballY;
+		union { null, int } homeZone = null;
+		union { null, int } homeSubzone = null;
+		union { null, int } awayZone = null;
+		union { null, int } awaySubzone = null;
+	}
+}
