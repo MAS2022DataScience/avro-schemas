@@ -42,24 +42,100 @@ public class Zones {
     }
     // in phase 2
     else if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(1).getEnd())) {
-
+      if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(1).getLeftTeamID()))) {
+        // left team
+        if (inZone1(x, y,"left")) {
+          return 1;
+        }
+        if (inZone3(x, y,"left")) {
+          return 3;
+        }
+      } else {
+        // right team
+        if (inZone1(x, y,"right")) {
+          return 1;
+        }
+        if (inZone3(x, y,"right")) {
+          return 3;
+        }
+      }
+      if (inZone2(x, y)) {
+        return 2;
+      }
     }
     // in phase 3
     else if(phases.getPhases().size() == 3) {
       if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(2).getEnd())) {
-
+        if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(2).getLeftTeamID()))) {
+          // left team
+          if (inZone1(x, y,"left")) {
+            return 1;
+          }
+          if (inZone3(x, y,"left")) {
+            return 3;
+          }
+        } else {
+          // right team
+          if (inZone1(x, y,"right")) {
+            return 1;
+          }
+          if (inZone3(x, y,"right")) {
+            return 3;
+          }
+        }
+        if (inZone2(x, y)) {
+          return 2;
+        }
       }
     }
     // in phase 4
     else if(phases.getPhases().size() == 4) {
       if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(3).getEnd())) {
-
+        if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(3).getLeftTeamID()))) {
+          // left team
+          if (inZone1(x, y,"left")) {
+            return 1;
+          }
+          if (inZone3(x, y,"left")) {
+            return 3;
+          }
+        } else {
+          // right team
+          if (inZone1(x, y,"right")) {
+            return 1;
+          }
+          if (inZone3(x, y,"right")) {
+            return 3;
+          }
+        }
+        if (inZone2(x, y)) {
+          return 2;
+        }
       }
     }
     // in phase 5
     else if(phases.getPhases().size() == 5) {
       if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(4).getEnd())) {
-
+        if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(4).getLeftTeamID()))) {
+          // left team
+          if (inZone1(x, y,"left")) {
+            return 1;
+          }
+          if (inZone3(x, y,"left")) {
+            return 3;
+          }
+        } else {
+          // right team
+          if (inZone1(x, y,"right")) {
+            return 1;
+          }
+          if (inZone3(x, y,"right")) {
+            return 3;
+          }
+        }
+        if (inZone2(x, y)) {
+          return 2;
+        }
       }
     }
     return -1;
