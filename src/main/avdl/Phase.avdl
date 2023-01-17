@@ -2,6 +2,7 @@
 @description("raw tracab phase data")
 protocol PhaseProtocol {
 	record Phase {
+		union { null, int }  phaseNumber = null;
 		string start;
 		string end;
 		union { null, int }  leftTeamID = null;
