@@ -5,6 +5,7 @@ protocol TracabGen5TF01Protocol {
 
 	record TracabGen5TF01 {
 		string utc;
+		union { null, timestamp_ms } ts = null;
 		union { null, string }  matchId = null;
 		@description("Ball status or BallInPlay, [D is Dead, A is Alive]")
 		string isBallInPlay;
