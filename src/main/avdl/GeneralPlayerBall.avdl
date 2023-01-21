@@ -3,7 +3,8 @@
 protocol PlayerBallProtocol {
 	record PlayerBall {
 		timestamp_ms ts;
-		string id; // player id or ball id
+		string playerId; // player id or ball id
+		string teamId;
 		string matchId;
 		int x;
 		int y;
