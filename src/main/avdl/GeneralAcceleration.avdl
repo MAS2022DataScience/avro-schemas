@@ -4,6 +4,7 @@ protocol AccelerationProtocol {
 	record Acceleration {
 		timestamp_ms ts;
 		string playerId;
+		string teamId;
 		string matchId;
 		double vMin;
 		double vMax;
