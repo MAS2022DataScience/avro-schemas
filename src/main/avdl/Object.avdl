@@ -6,6 +6,8 @@ protocol ObjectProtocol {
 		int type;
 		@description("player id or jersey number")
 		string id;
+		union { null, string } playerId = null;
+		union { null, string } teamId = null;
 		@description("x coordinate")
 		int x;
 		@description("y coordinate")
