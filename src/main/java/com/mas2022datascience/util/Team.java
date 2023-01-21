@@ -38,4 +38,30 @@ public class Team {
       return null;
     }
   }
+
+  /**
+   * checks which team (majority of the players) is on the left pitch side
+   * @param playerList of chunk 2 of type String[]
+   * @return TeamID of the left team of type Integer
+   */
+  public static Integer getLeftTeamID(String[] playerList, TracabGen5TF01Metadata metadata) {
+
+    int homeTeamCount = 0;
+    for (String player : playerList) {
+      String[] playerSplit = player.split(",");
+      // Valid values: 1=Hometeam, 0=Awayteam, 3=Referee. Other values are used for internal purposes.
+      if (playerSplit[0].equals("1") &&
+          Player.isPlayerOnLeftPitchSide(Integer.parseInt(playerSplit[3]),
+              Integer.parseInt(playerSplit[4]), metadata)) {
+        homeTeamCount++;
+      }
+    }
+
+    // if home team has more than 8 players on the left pitch side, then home team is the left team
+    if (homeTeamCount > 8) {
+      return metadata.getHomeTeam().getTeamID();
+    } else {
+      return metadata.getAwayTeam().getTeamID();
+    }
+  }
 }
