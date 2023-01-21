@@ -53,4 +53,22 @@ public class Player {
     }
   }
 
+  /**
+   * checks if the player x, y coordinates are on the left pitch side
+   * @param x coordinate of the player of type Integer
+   * @param y coordinate of the player of type Integer
+   * @param metadata of the match of type TracabGen5TF01Metadata
+   * @return true if the player is on the left pitch side, false otherwise
+   */
+  public static boolean isPlayerOnLeftPitchSide (int x, int y, TracabGen5TF01Metadata metadata) {
+    int pitchMaxYSize = metadata.getPitchShortSide() / 2;
+    int pitchMaxXSize = metadata.getPitchLongSide() / 2;
+
+    if (x <= 0 && x >= -pitchMaxXSize && y <= pitchMaxYSize && y >= -pitchMaxYSize) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
