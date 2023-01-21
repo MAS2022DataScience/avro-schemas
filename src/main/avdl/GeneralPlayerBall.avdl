@@ -4,7 +4,7 @@ protocol PlayerBallProtocol {
 	record PlayerBall {
 		timestamp_ms ts;
 		string playerId; // player id or ball id
-		string teamId;
+		union { null, string } teamId;
 		string matchId;
 		int x;
 		int y;
