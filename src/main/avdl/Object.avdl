@@ -8,6 +8,7 @@ protocol ObjectProtocol {
 		string id;
 		union { null, string } playerId = null;
 		union { null, string } teamId = null;
+		union { null, int } zone = null;
 		@description("x coordinate")
 		int x;
 		@description("y coordinate")
