@@ -1,0 +1,21 @@
+@namespace("com.mas2022datascience.avro.v1")
+@description("general ball zone change event data")
+protocol GeneralBallZoneChangeProtocol {
+	record GeneralBallZoneChange {
+		timestamp_ms ts;
+		string matchId;
+		string homeTeamId;
+		string awayTeamId;
+		int ballX;
+		int ballY;
+		union { null, int } ballZ = null;
+		int homeZoneOld;
+		union { null, int } homeSubzoneOld = null;
+		int homeZoneNew;
+		union { null, int } homeSubzoneNew = null;
+		int awayZoneOld;
+		union { null, int } awaySubzoneOld = null;
+		int awayZoneNew;
+		union { null, int } awaySubzoneNew = null;
+	}
+}
