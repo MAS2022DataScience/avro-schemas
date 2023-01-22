@@ -2,6 +2,7 @@ package com.mas2022datascience.util;
 
 import static com.mas2022datascience.util.Time.utcString2epocMs;
 
+import com.mas2022datascience.avro.v1.PlayerBall;
 import java.time.Instant;
 import com.mas2022datascience.avro.v1.GeneralMatchPhase;
 
@@ -173,6 +174,49 @@ public class Zones {
       return x >= 1500 && x <= 5250 && y >= -3400 && y <= 3400;
     } else {
       return x >= -5250 && x <= -1500 && y >= -3400 && y <= 3400;
+    }
+  }
+
+  /**
+   * returns true if the player is in the same zone
+   * @param oldPlayerBall
+   * @param newPlayerBall
+   * @return true if the player is in the same zone
+   */
+  public static boolean isInSameZone(PlayerBall oldPlayerBall, PlayerBall newPlayerBall) {
+    if (inZone1(newPlayerBall.getX(), newPlayerBall.getY(), "left")
+        && inZone1(oldPlayerBall.getX(), oldPlayerBall.getY(), "left")) {
+      return true;
+    }
+    if (inZone2(newPlayerBall.getX(), newPlayerBall.getY())
+        && inZone2(oldPlayerBall.getX(), oldPlayerBall.getY())) {
+      return true;
+    }
+    if (inZone3(newPlayerBall.getX(), newPlayerBall.getY(), "left")
+        && inZone3(oldPlayerBall.getX(), oldPlayerBall.getY(), "left")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * returns the zone of the player under the estimation to be the left team
+   * @param x
+   * @param y
+   * @return the zone of the player
+   */
+  public static int getZoneLeft(Integer x, Integer y) {
+    if (inZone1(x, y,"left")) {
+      return 1;
+    }
+    if (inZone2(x, y)) {
+      return 2;
+    }
+    if (inZone3(x, y,"left")) {
+      return 3;
+    } else {
+      return -1;
     }
   }
 
