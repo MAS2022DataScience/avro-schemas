@@ -6,6 +6,11 @@ protocol PlayerBallProtocol {
 		string playerId; // player id or ball id (0)
 		union { null, string } teamId = null;
 		string matchId;
+		//Ball status or BallInPlay, [D is Dead, A is Alive]
+		union { null, string } isBallInPlay = null;
+		//Who has ball possession [Home, Away]
+		union { null, string } ballPossession = null;
+		union { null, int } zone = null;
 		int x;
 		int y;
 		int z;
