@@ -13,7 +13,8 @@ public class Zones {
    * @param y of type int
    * @param ts of type Instant
    * @param HomeAwayTeamId of type Integer
-   * @return zone of type int
+   * @param phases of type GeneralMatchPhase
+   * @return zone of the away or the home team of type int
    */
   public static int getZone(Integer x, Integer y, Instant ts, String HomeAwayTeamId,
       GeneralMatchPhase phases) {
