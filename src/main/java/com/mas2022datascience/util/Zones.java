@@ -178,10 +178,10 @@ public class Zones {
   }
 
   /**
-   * returns true if the player is in the same zone
-   * @param oldPlayerBall
-   * @param newPlayerBall
-   * @return true if the player is in the same zone
+   * returns true if the player is in the same zone otherwise false
+   * @param oldPlayerBall of type PlayerBall
+   * @param newPlayerBall of type PlayerBall
+   * @return true if the player is in the same zone otherwise false
    */
   public static boolean isInSameZone(PlayerBall oldPlayerBall, PlayerBall newPlayerBall) {
     if (inZone1(newPlayerBall.getX(), newPlayerBall.getY(), "left")
@@ -192,18 +192,14 @@ public class Zones {
         && inZone2(oldPlayerBall.getX(), oldPlayerBall.getY())) {
       return true;
     }
-    if (inZone3(newPlayerBall.getX(), newPlayerBall.getY(), "left")
-        && inZone3(oldPlayerBall.getX(), oldPlayerBall.getY(), "left")) {
-      return true;
-    } else {
-      return false;
-    }
+    return inZone3(newPlayerBall.getX(), newPlayerBall.getY(), "left")
+        && inZone3(oldPlayerBall.getX(), oldPlayerBall.getY(), "left");
   }
 
   /**
    * returns the zone of the player under the estimation to be the left team
-   * @param x
-   * @param y
+   * @param x of type Integer
+   * @param y of type Integer
    * @return the zone of the player
    */
   public static int getZoneLeft(Integer x, Integer y) {
@@ -215,6 +211,25 @@ public class Zones {
     }
     if (inZone3(x, y,"left")) {
       return 3;
+    } else {
+      return -1;
+    }
+  }
+
+  /**
+   * returns the inverted zone numbering
+   * @param zone of type Integer
+   * @return the inverted zone numbering
+   */
+  public static int invertZoneNumbering(int zone) {
+    if (zone == 1) {
+      return 3;
+    }
+    if (zone == 2) {
+      return 2;
+    }
+    if (zone == 3) {
+      return 1;
     } else {
       return -1;
     }
