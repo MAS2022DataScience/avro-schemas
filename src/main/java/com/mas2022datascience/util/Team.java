@@ -1,7 +1,11 @@
 package com.mas2022datascience.util;
 
+import static com.mas2022datascience.util.Time.utcString2epocMs;
+
+import com.mas2022datascience.avro.v1.GeneralMatchPhase;
 import com.mas2022datascience.avro.v1.Object;
 import com.mas2022datascience.avro.v1.TracabGen5TF01Metadata;
+import java.time.Instant;
 
 public class Team {
 
@@ -37,6 +41,42 @@ public class Team {
       // Referee or ball
       return null;
     }
+  }
+
+  /**
+   * The method returns the left team id depending on the time stamp
+   * @param ts timer stamp of type Instant
+   * @param phases of type GeneralMatchPhase
+   * @return left team id of type Integer depending on the timestamp
+   */
+  public static Integer getLeftTeamByTimestamp(Instant ts, GeneralMatchPhase phases) {
+    // in phase 1
+    if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(0).getEnd())) {
+      return phases.getPhases().get(0).getLeftTeamID();
+    }
+    // in phase 2
+    else if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(1).getEnd())) {
+      return phases.getPhases().get(1).getLeftTeamID();
+    }
+    // in phase 3
+    else if(phases.getPhases().size() == 3) {
+      if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(2).getEnd())) {
+        return phases.getPhases().get(2).getLeftTeamID();
+      }
+    }
+    // in phase 4
+    else if(phases.getPhases().size() == 4) {
+      if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(3).getEnd())) {
+        return phases.getPhases().get(3).getLeftTeamID();
+      }
+    }
+    // in phase 5
+    else if(phases.getPhases().size() == 5) {
+      if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(4).getEnd())) {
+        return phases.getPhases().get(4).getLeftTeamID();
+      }
+    }
+    return -1;
   }
 
   /**
