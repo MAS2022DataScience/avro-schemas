@@ -19,130 +19,131 @@ public class Zones {
    */
   public static int getZone(Integer x, Integer y, Instant ts, String HomeAwayTeamId,
       GeneralMatchPhase phases) {
-    // in phase 1
-    if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(0).getEnd())) {
-      if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(0).getLeftTeamID()))) {
-        // left team
-        if (inZone1(x, y,"left")) {
-          return 1;
+
+    switch (phases.getPhases().size()) {
+      case 5:
+        if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(4).getEnd())) {
+          if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(4).getLeftTeamID()))) {
+            // left team
+            if (inZone1(x, y,"left")) {
+              return 1;
+            }
+            if (inZone3(x, y,"left")) {
+              return 3;
+            }
+          } else {
+            // right team
+            if (inZone1(x, y,"right")) {
+              return 1;
+            }
+            if (inZone3(x, y,"right")) {
+              return 3;
+            }
+          }
+          if (inZone2(x, y)) {
+            return 2;
+          }
         }
-        if (inZone3(x, y,"left")) {
-          return 3;
+      case 4:
+        if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(3).getEnd())) {
+          if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(3).getLeftTeamID()))) {
+            // left team
+            if (inZone1(x, y,"left")) {
+              return 1;
+            }
+            if (inZone3(x, y,"left")) {
+              return 3;
+            }
+          } else {
+            // right team
+            if (inZone1(x, y,"right")) {
+              return 1;
+            }
+            if (inZone3(x, y,"right")) {
+              return 3;
+            }
+          }
+          if (inZone2(x, y)) {
+            return 2;
+          }
         }
-      } else {
-        // right team
-        if (inZone1(x, y,"right")) {
-          return 1;
+      case 3:
+        if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(2).getEnd())) {
+          if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(2).getLeftTeamID()))) {
+            // left team
+            if (inZone1(x, y,"left")) {
+              return 1;
+            }
+            if (inZone3(x, y,"left")) {
+              return 3;
+            }
+          } else {
+            // right team
+            if (inZone1(x, y,"right")) {
+              return 1;
+            }
+            if (inZone3(x, y,"right")) {
+              return 3;
+            }
+          }
+          if (inZone2(x, y)) {
+            return 2;
+          }
         }
-        if (inZone3(x, y,"right")) {
-          return 3;
+      case 2:
+        if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(1).getEnd())) {
+          if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(1).getLeftTeamID()))) {
+            // left team
+            if (inZone1(x, y, "left")) {
+              return 1;
+            }
+            if (inZone3(x, y, "left")) {
+              return 3;
+            }
+          } else {
+            // right team
+            if (inZone1(x, y, "right")) {
+              return 1;
+            }
+            if (inZone3(x, y, "right")) {
+              return 3;
+            }
+          }
+          if (inZone2(x, y)) {
+            return 2;
+          }
         }
-      }
-      if (inZone2(x, y)) {
-        return 2;
-      }
+      case 1:
+        if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(0).getEnd())) {
+          if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(0).getLeftTeamID()))) {
+            // left team
+            if (inZone1(x, y, "left")) {
+              return 1;
+            }
+            if (inZone3(x, y, "left")) {
+              return 3;
+            }
+          } else {
+            // right team
+            if (inZone1(x, y, "right")) {
+              return 1;
+            }
+            if (inZone3(x, y, "right")) {
+              return 3;
+            }
+          }
+          if (inZone2(x, y)) {
+            return 2;
+          }
+        }
+      default:
+        return -1;
     }
-    // in phase 2
-    else if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(1).getEnd())) {
-      if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(1).getLeftTeamID()))) {
-        // left team
-        if (inZone1(x, y,"left")) {
-          return 1;
-        }
-        if (inZone3(x, y,"left")) {
-          return 3;
-        }
-      } else {
-        // right team
-        if (inZone1(x, y,"right")) {
-          return 1;
-        }
-        if (inZone3(x, y,"right")) {
-          return 3;
-        }
-      }
-      if (inZone2(x, y)) {
-        return 2;
-      }
-    }
-    // in phase 3
-    else if(phases.getPhases().size() == 3) {
-      if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(2).getEnd())) {
-        if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(2).getLeftTeamID()))) {
-          // left team
-          if (inZone1(x, y,"left")) {
-            return 1;
-          }
-          if (inZone3(x, y,"left")) {
-            return 3;
-          }
-        } else {
-          // right team
-          if (inZone1(x, y,"right")) {
-            return 1;
-          }
-          if (inZone3(x, y,"right")) {
-            return 3;
-          }
-        }
-        if (inZone2(x, y)) {
-          return 2;
-        }
-      }
-    }
-    // in phase 4
-    else if(phases.getPhases().size() == 4) {
-      if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(3).getEnd())) {
-        if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(3).getLeftTeamID()))) {
-          // left team
-          if (inZone1(x, y,"left")) {
-            return 1;
-          }
-          if (inZone3(x, y,"left")) {
-            return 3;
-          }
-        } else {
-          // right team
-          if (inZone1(x, y,"right")) {
-            return 1;
-          }
-          if (inZone3(x, y,"right")) {
-            return 3;
-          }
-        }
-        if (inZone2(x, y)) {
-          return 2;
-        }
-      }
-    }
-    // in phase 5
-    else if(phases.getPhases().size() == 5) {
-      if (ts.toEpochMilli() <= utcString2epocMs(phases.getPhases().get(4).getEnd())) {
-        if (HomeAwayTeamId.equals(String.valueOf(phases.getPhases().get(4).getLeftTeamID()))) {
-          // left team
-          if (inZone1(x, y,"left")) {
-            return 1;
-          }
-          if (inZone3(x, y,"left")) {
-            return 3;
-          }
-        } else {
-          // right team
-          if (inZone1(x, y,"right")) {
-            return 1;
-          }
-          if (inZone3(x, y,"right")) {
-            return 3;
-          }
-        }
-        if (inZone2(x, y)) {
-          return 2;
-        }
-      }
-    }
-    return -1;
   }
-//  Zone1
+
+
+
+  //  Zone1
 //10500 / 2 = 5250 - 1500 = 3750
 //  x = -5250 bis -3750
 //      6800 / 2 = 3400
