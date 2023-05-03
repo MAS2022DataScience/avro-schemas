@@ -17,10 +17,11 @@ public class Team {
    */
   public static String getTeamIdFromHomeOrAwayId(Integer homeAwayTeamId,
       TracabGen5TF01Metadata metadata) {
-    if (homeAwayTeamId == 0) {
+    // 1=Hometeam, 0=Awayteam
+    if (homeAwayTeamId == 1) {
       return String.valueOf(metadata.getHomeTeam().getTeamID());
     } else {
-      if (homeAwayTeamId == 1) {
+      if (homeAwayTeamId == 0) {
         return String.valueOf(metadata.getAwayTeam().getTeamID());
       } else {
         return null;
