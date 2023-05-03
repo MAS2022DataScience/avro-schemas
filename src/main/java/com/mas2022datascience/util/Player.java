@@ -17,13 +17,13 @@ public class Player {
   public static String getPlayerIdJerseyNumber(String JerseyNumber,
       String homeAwayTeamId, TracabGen5TF01Metadata metadata) {
     Optional<TracabGen5TF01Player> result = null;
-
+    // 1=Hometeam, 0=Awayteam, 3=Referee
     switch (homeAwayTeamId) {
-      case "0":
+      case "1":
         result = metadata.getHomeTeam().getPlayers().stream()
             .filter(player -> player.getJerseyNo() == Integer.parseInt(JerseyNumber)).findFirst();
         break;
-      case "1":
+      case "0":
         result = metadata.getAwayTeam().getPlayers().stream()
           .filter(player -> player.getJerseyNo() == Integer.parseInt(JerseyNumber)).findFirst();
         break;
