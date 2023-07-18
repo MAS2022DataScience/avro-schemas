@@ -39,4 +39,16 @@ public class Time {
     }
   }
 
+  /**
+   * calculates the time difference in seconds
+   * @param actualUtc UTC time as a String
+   * @param oldUtc UTC time as a String
+   * @return time difference in seconds
+   */
+  public static float getTimeDifference(String actualUtc, String oldUtc) {
+    // represents the divisor that is needed to get s. Ex. ms to s means 1000 as 1000ms is 1s
+    float timeUnitDivisor = 1000;
+    return (Time.utcString2epocMs(actualUtc) - Time.utcString2epocMs(oldUtc))/timeUnitDivisor;
+  }
+
 }
