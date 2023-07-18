@@ -17,5 +17,12 @@ protocol PlayerBallProtocol {
 		union { null, double } velocity = null;
 		union { null, double } accelleration = null;
 		union { null, double } distance = null;
+		union { null, double } distancePlayerBall = null;
+		union { null, double } velocityPlayerVectorX = null;
+		union { null, double } velocityPlayerVectorY = null;
+		union { null, double } velocityPlayerVectorZ = null;
+		union { null, double } velocityPlayerBallVectorX = null;
+		union { null, double } velocityPlayerBallVectorY = null;
+		union { null, double } velocityPlayerBallVectorZ = null;
 	}
 }

@@ -9,16 +9,23 @@ protocol ObjectProtocol {
 		union { null, string } playerId = null;
 		union { null, string } teamId = null;
 		union { null, int } zone = null;
-		@description("x coordinate")
+		@description("x coordinate of the player or ball")
 		int x;
-		@description("y coordinate")
+		@description("y coordinate of the player or ball")
 		int y;
-		@description("z coordinate")
+		@description("z coordinate of the player or ball")
 		int z;
 		int sampling;
 		union { null, double } velocity = null;
 		union { null, double } accelleration = null;
 		union { null, double } distance = null;
 		union { null, double } delta_time = null;
+		union { null, double } distancePlayerBall = null;
+		union { null, double } velocityPlayerVectorX = null;
+		union { null, double } velocityPlayerVectorY = null;
+		union { null, double } velocityPlayerVectorZ = null;
+		union { null, double } velocityPlayerBallVectorX = null;
+		union { null, double } velocityPlayerBallVectorY = null;
+		union { null, double } velocityPlayerBallVectorZ = null;
 	}
 }
