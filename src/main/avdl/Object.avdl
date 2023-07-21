@@ -21,11 +21,11 @@ protocol ObjectProtocol {
 		union { null, double } distance = null;
 		union { null, double } delta_time = null;
 		union { null, double } distancePlayerBall = null;
-		union { null, double } velocityPlayerVectorX = null;
-		union { null, double } velocityPlayerVectorY = null;
-		union { null, double } velocityPlayerVectorZ = null;
-		union { null, double } velocityPlayerBallVectorX = null;
-		union { null, double } velocityPlayerBallVectorY = null;
-		union { null, double } velocityPlayerBallVectorZ = null;
+		union { null, double } playerVectorX = null;
+		union { null, double } playerVectorY = null;
+		union { null, double } playerVectorZ = null;
+		union { null, double } playerBallVectorX = null;
+		union { null, double } playerBallVectorY = null;
+		union { null, double } playerBallVectorZ = null;
 	}
 }
