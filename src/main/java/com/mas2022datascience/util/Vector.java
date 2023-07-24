@@ -46,7 +46,7 @@ public class Vector {
 
   /**
    * calculates the 3d vector of two points math:
-   * vector = point2 - point1 = (x2-x1, y2-y1, z2-z1)
+   * vector = point2 - point1 = ((x2-x1)/magnitude, (y2-y1)/magnitude, (z2-z1)/magnitude)
    * the actual point - the last point is used to calculate the vector
    * @param point1 of type double[] contains the x, y and z coordinates of the first point
    * @param point2 of type double[] contains the x, y and z coordinates of the second point
@@ -64,6 +64,7 @@ public class Vector {
 
   /**
    * calculates the dot product of two vectors
+   * math: dot product = x1*x2 + y1*y2 + z1*z2
    * @param vector1 of type double[] contains the x, y and z components of the first vector
    * @param vector2 of type double[] contains the x, y and z components of the second vector
    * @return dot product of the two vectors
